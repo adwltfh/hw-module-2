@@ -1,8 +1,8 @@
 const AlbumCover = ({cover}) => {
     return (
-        <div className="album-cover">
+        <div className="img-container">
             <img 
-                className="cover-img"
+                className="album-cover"
                 src={cover}
             />
         </div>
@@ -11,8 +11,8 @@ const AlbumCover = ({cover}) => {
 
 const AlbumInfo = ({title, artists, children}) => {
     return (
-        <div className="song-info">
-            <h4>{title}</h4>
+        <div className="album-title">
+            <h1>{title}</h1>
             <p>{artists}</p>
             {children}
         </div>
@@ -21,7 +21,7 @@ const AlbumInfo = ({title, artists, children}) => {
 
 const AlbumButton = ({url}) => {
     return (
-        <a href={url}><button className="btn">Select</button></a>
+        <a href={url}><button className="albumBtn">Select</button></a>
     );
 }
 

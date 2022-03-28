@@ -1,0 +1,55 @@
+.album-container {
+  width: 1170px;
+  background-color: rgba(118, 88, 13, 0.83);
+  border-radius: 10px;
+  margin: 40px 0 20px 0;
+  padding: 40px;
+  height: 380px;
+}
+
+.img-container {
+  float: left;
+}
+
+.album-cover {
+  height: 300px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+.album-title {
+  height: 300px;
+  float: right;
+  padding: 120px 0 0 0;
+}
+
+.album-title h1 {
+  color: white;
+  font-size: 32px;
+}
+
+.album-title p {
+  color: rgb(208, 194, 194);
+  font-size: 26px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.albumBtn {
+  display: inline-block;
+  margin-top: 60px;
+  height: 50px;
+  width: 200px;
+  border-radius: 100px;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(214, 194, 194);
+  background-color: rgb(199, 89, 38);
+  border: 3px outset rgb(143, 70, 36);
+}
+
+.albumBtn:active {
+  background-color: rgb(143, 70, 36);
+  color: rgb(167, 150, 150);
+  border: none;
+}
