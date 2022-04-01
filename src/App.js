@@ -1,18 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Albums from './pages/album';
-import SpotifyPlaylist from './pages/playlist';
+// import SpotifyPlaylist from './pages/playlist';
+import Track from './components/track';
 import SearchBar from './pages/search-bar';
+import { SearchProvider, SearchResult } from './result-context/searchResult';
 
-function App() {
+
+const App = () => {
+  const {result} = SearchResult();
+
   return (
     <div className="App">
-      <SearchBar/>
+      <SearchBar />
       <Albums />
       <hr/>
-      <SpotifyPlaylist />
+      {/* <SpotifyPlaylist /> */}
+      <Track />
     </div>
   )
 }
 
-export default App;
+const AppContainer = () => {
+  return (
+    <SearchProvider>
+      <App />
+    </SearchProvider>
+  )
+}
+
+export default AppContainer;

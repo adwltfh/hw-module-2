@@ -1,4 +1,28 @@
-const TracksInfo = ({cover, title, artists, url}) => {
+import { SearchResult } from "../../result-context/searchResult";
+
+const TracksInfo = ({cover, title, artists, uri, song}) => {
+    const {selectedSongs, setSelectedSongs} = SearchResult();
+
+    const generateButton = () => {
+        const selected = selected.findIndex((song) => song.uri === uri);
+        if (selected !== -1) return 'Deslect';
+        return 'Select';
+    }
+
+    const handleSelect = () => {
+        const selected = selectedSongs.fineIndex((song) => song.uri === uri)
+        if (selected > -1) {
+            const newSongSelected = selectedSongs.filter((song) => song.uri !== uri);
+            setSelectedSongs(newSongSelected);
+        }
+        else {
+            const newSongSelected = [...selectedSongs, song];
+            setSelectedSongs(newSongSelected);
+        }
+    }
+
+    console.log(selectedSongs)
+
     return (
         <div className="tracks-component">
             <img 
@@ -9,7 +33,9 @@ const TracksInfo = ({cover, title, artists, url}) => {
                 <h4>{title}</h4>
                 <p>{artists}</p>
             </div>
-            <a href={url}><button className="btn">Select</button></a>
+            <button className="btn" onClick={handleSelect}>
+                    {generateButton}
+            </button>
         </div>
     );
 }
