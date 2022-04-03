@@ -2,6 +2,7 @@ import './style.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { SearchResult } from '../../result-context/searchResult';
+import PlaylistForm from '../../components/forms';
 
 const BASE_URL = process.env.REACT_APP_SPOTIFY_BASE_URL;
 const CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
@@ -35,11 +36,65 @@ const SearchBar = () => {
             headers: {
                 'Authorization': `Bearer ${token}`
             },
-         })
-         .then((response) => {
-             setResult(response.data.tracks.items)
         })
-      }
+        .then((response) => {
+            setResult(response.data.tracks.items)
+    })
+    }
+
+      //form
+    const [title, setTitle] = useState('');
+    const [desciption, setDescription] = useState('');
+    const {selectedSongs, setSelectedSongs} = SearchResult();
+
+    const handleTitleChanges = (e) => {
+        setTitle(e.target.value);
+    }
+
+    const handleDescriptionChanges = (e) => {
+        setDescription(e.target.value);
+    }
+
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
+        const uris = selectedSongs.map((song) => song.uri);
+        console.log(uris);
+        axios.get(`${BASE_URL}me`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response) => {
+            console.log(response);
+                axios.post(`${BASE_URL}users/${response.data.id}/playlists`, {
+                    name: title,
+                    description: desciption,
+                    collaborative: false,
+                    public: false
+                },
+                {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    }
+                }).then((response) => {
+                    axios ({
+                        method: 'post',
+                        url: `${BASE_URL}playlists/${response.data.id}/tracks`,
+                        data: {
+                            uris: uris
+                        },
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                        }
+                    })
+                    alert(`Playlist ${title} successfully added`);
+                })
+            }
+        )
+    }
 
     useEffect(() => {
         if(window.location.hash) {
@@ -61,18 +116,51 @@ const SearchBar = () => {
             {
                 token &&
                 <>
+                    <PlaylistForm
+                        handleTitleChanges={handleTitleChanges}
+                        handleDescriptionChanges={handleDescriptionChanges}
+                    />
+
                     <div className="search-container">
                         <input className="search-bar" value={query} onChange={(e) => setQuery(e.target.value)}></input>
                         <button className="search-btn" type="submit" onClick={handleSearch}>Search</button>
                     </div>
-                    {/* {result.map((result) => (
-                        <TracksInfo 
-                            key={result.id}
-                            cover={result.album.images[0].url} title={result.name} artists={result.artists[0].name} url={result.preview_url} />
-                    ))} */}
                 </>
             }
         </>
+
+                // <form className="input-form" onSubmit={handleFormSubmit}>
+                //     <label>Tilte</label>
+                //     <div>
+                //         <input 
+                //             className="song-title-lbl" 
+                //             name="input" 
+                //             id="input"
+                //             type="text"
+                //             onChange={handleTitleChanges}
+                //             minLength="10"
+                //         />
+                //     </div>
+                //     <div>
+                //         <label>Song Description</label>
+                //         <input 
+                //             className="song-desc-lbl" 
+                //             name="description" 
+                //             id="description"
+                //             type="text"
+                //             onChange={handleDescriptionChanges}
+                //         />
+                //     </div>
+                //     <div>
+                //         <button
+                //             className="song-form-btn"
+                //             type="submit"
+                //             id="song-form-btn"
+                //         >
+                //         Submit  
+                //         </button>
+                //     </div>
+                // </form>
     )
 }
 

@@ -1,0 +1,65 @@
+.crt-playlist-container {
+    width: 265px;
+    background-color: rgba(118, 88, 13, 0.83);
+    border-radius: 10px;
+    margin: 40px 0 20px 0;
+    padding: 10px 30px;
+    height: 200px;
+}
+
+.crt-playlist-container h2 {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.title-container {
+    margin-bottom: 10px;
+}
+
+.desc-container {
+    margin-bottom: 10px;
+}
+
+.song-title-lbl {
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid rgb(167, 150, 150);
+    background: transparent;
+    color: white;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.song-desc-lbl {
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid rgb(167, 150, 150);
+    background: transparent;
+    color: white;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.497);
+}
+
+.song-form-btn {
+    display: inline-block;
+    background-color: rgb(199, 89, 38);
+    color: black;
+    font-weight: bold;
+    border: 2px solid rgb(174, 82, 39);
+    border-radius: 80px;
+    width: 70px;
+    height: 30px;
+    font-size: 12px;
+}
+
+.song-form-btn:hover {
+    background-color: rgb(230, 114, 61);
+    transition: all 0.3s;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(230, 114, 61);
+}

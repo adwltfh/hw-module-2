@@ -1,6 +1,7 @@
 import TracksInfo from "../tracks";
 import data from "../../data/data";
 import { SearchResult } from "../../result-context/searchResult";
+import TracksContainer from '../../components/container';
 
 const Track = () => {
     const {result, selectedSongs} = SearchResult();
@@ -10,46 +11,48 @@ const Track = () => {
             {
                 selectedSongs.length > 0 &&
                 <>
-                    return (
-                        <div>
-                            <h3>Selected Songs</h3>
-                            {selectedSongs.map((song) => {
-                                return (
+                    <div>
+                        <h3>Selected Songs</h3>
+                        {selectedSongs.map((song) => {
+                            return (
+                                <TracksContainer key={song.uri}>
                                     <TracksInfo 
-                                        key={song.uri}
                                         cover={song.album.images[0].url}
                                         title={song.name}
                                         artists={song.artists[0].name}
                                         uri={song.uri}
                                     />
-                                )
-                            })}
-                        </div>
-                    )
+                                </TracksContainer>
+                            )
+                        })}
+                    </div>
                 </>
             }
             {
                 result.length === 0 && data.map((song) => (
-                    <TracksInfo
-                        key={song.id}
-                        cover={song.album.images[0].url}
-                        title={song.name}
-                        artists={song.artists[0].name}
-                        uri={song.uri}
-                        song={song}
-                    />
+                    <TracksContainer key={song.id}>
+                        <TracksInfo
+                            cover={song.album.images[0].url}
+                            title={song.name}
+                            artists={song.artists[0].name}
+                            uri={song.uri}
+                            song={song}
+                        />
+                    </TracksContainer>
                 ))
             }
             {
                 result.length > 0 && result.map((song) => (
-                    <TracksInfo
-                        key={song.id}
-                        cover={song.album.images[0].url}
-                        title={song.name}
-                        artists={song.artists[0].name}
-                        uri={song.uri}
-                        song={song}
-                    />
+                    <TracksContainer key={song.id}>
+                        <TracksInfo
+                            key={song.id}
+                            cover={song.album.images[0].url}
+                            title={song.name}
+                            artists={song.artists[0].name}
+                            uri={song.uri}
+                            song={song}
+                        />
+                    </TracksContainer>
                 ))
             }
         </>
