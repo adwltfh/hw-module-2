@@ -1,6 +1,6 @@
 import './style.css';
 import data from '../../data/data1';
-import {AlbumCover, AlbumInfo, AlbumButton} from '../../components/album-info';
+import {AlbumCover, AlbumInfo, AlbumButton} from './album-info';
 
 const Albums = () => {
     return (

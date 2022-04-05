@@ -1,4 +1,4 @@
-import TracksInfo from "../tracks";
+import TracksInfo from "./tracks";
 import data from "../../data/data";
 import { SearchResult } from "../../result-context/searchResult";
 import TracksContainer from '../../components/container';
@@ -11,7 +11,7 @@ const Track = () => {
             {
                 selectedSongs.length > 0 &&
                 <>
-                    <div>
+                    <div className="selected-tracks-container">
                         <h3>Selected Songs</h3>
                         {selectedSongs.map((song) => {
                             return (
@@ -26,6 +26,7 @@ const Track = () => {
                             )
                         })}
                     </div>
+                    <br></br>
                 </>
             }
             {

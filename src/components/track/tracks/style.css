@@ -62,3 +62,9 @@
   color: rgb(255, 255, 255);
   border: 2px solid rgb(230, 114, 61);
 }
+
+.selected-tracks-container {
+  margin-bottom: 500px;
+  height: auto;
+  height: 500px;
+}

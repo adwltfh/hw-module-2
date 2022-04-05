@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import './App.css';
-import Albums from './pages/album';
+import Albums from './components/album';
 import Track from './components/track';
-import SearchBar from './pages/search-bar';
+import SearchBar from './pages/Home';
+// import AppNavBar from './components/navbar';
 import { SearchProvider, SearchResult } from './result-context/searchResult';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 
 const App = () => {
@@ -11,6 +14,7 @@ const App = () => {
 
   return (
     <div className="App">
+      {/* <AppNavBar /> */}
       <Albums />
       <hr/>
       <SearchBar />
@@ -21,9 +25,11 @@ const App = () => {
 
 const AppContainer = () => {
   return (
-    <SearchProvider>
-      <App />
-    </SearchProvider>
+    <Provider store={store}>
+      <SearchProvider>
+        <App />
+      </SearchProvider>
+    </Provider>
   )
 }
 

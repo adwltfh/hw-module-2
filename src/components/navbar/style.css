@@ -1,0 +1,99 @@
+.nav {
+  height: 100px;
+  background-color: rgba(164, 111, 30, 0.668);
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 1170px;
+  border-radius: 0 0 100px 100px;
+}
+
+.nav-logo {
+  position: absolute;
+  padding-left: 20px;
+  float: left;
+  line-height: 30px;
+  font-size: 25px;
+  color: white;
+}
+
+.nav-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+nav {
+  float: right;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  float: left;
+  position: relative;
+}
+
+.search-bar {
+  margin-top: 15px;
+  height: 60px;
+  width: 400px;
+  border-radius: 100px 0 0 100px;
+  border-right: 0px;
+  padding-left: 20px;
+  border: 1px solid rgb(199, 89, 38);
+}
+
+.search-btn {
+  height: 60px;
+  width: 70px;
+  border-radius: 0 100px 100px 0;
+  border-left: 0.5px solid rgb(199, 89, 38);
+  display: inline-block;
+  background-color: rgb(199, 89, 38);
+  border: solid rgb(199, 89, 38);
+  color: rgb(233, 225, 225);
+  padding-right: 10px;
+  font-weight: bold;
+}
+
+.source-link {
+  display: block;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 25px;
+  padding: 0 20px;
+  margin-top: 30px;
+  color: white;
+}
+
+.login-btn {
+  height: 60px;
+  width: 70px;
+  border-radius: 100px;
+  border-left: 0.5px solid rgb(199, 89, 38);
+  display: inline-block;
+  margin-top: 15px;
+  margin-left: 20px;
+  background-color: rgb(199, 89, 38);
+  border: solid rgb(199, 89, 38);
+  color: rgb(233, 225, 225);
+  font-weight: bold;
+}
+
+.logout-btn {
+  height: 60px;
+  width: 70px;
+  border-radius: 100px;
+  border-left: 0.5px solid rgb(199, 89, 38);
+  display: inline-block;
+  margin-top: 15px;
+  margin-left: 20px;
+  background-color: rgb(199, 89, 38);
+  border: solid rgb(199, 89, 38);
+  color: rgb(233, 225, 225);
+  font-weight: bold;
+}

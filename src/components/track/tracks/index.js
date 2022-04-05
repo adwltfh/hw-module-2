@@ -1,5 +1,5 @@
 import './style.css';
-import { SearchResult } from "../../result-context/searchResult";
+import { SearchResult } from "../../../result-context/searchResult";
 
 const TracksInfo = ({cover, title, artists, uri, song}) => {
     const {selectedSongs, setSelectedSongs} = SearchResult();
