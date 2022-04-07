@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import axios from 'axios';
 import { SearchResult } from '../../result-context/searchResult';
-import PlaylistForm from '../../components/forms';
-import TokenGetter from '../../redux/handleToken';
+import axios from 'axios';
+// import PlaylistForm from '../../components/forms';
+// import Albums from '../../components/album';
+// import Track from '../../components/track';
 
 const BASE_URL = process.env.REACT_APP_SPOTIFY_BASE_URL;
 
@@ -14,7 +15,7 @@ const SearchBar = () => {
     const {selectedSongs, setSelectedSongs} = SearchResult();
     const {result, setResult} = SearchResult();
 
-    const token = useSelector((state) => state.token.value);
+    const {accTokenBearer} = useSelector((state) => state.token);
 
     //SEARCH BAR HANDLER
     const handleSearch = async () => {
@@ -24,7 +25,7 @@ const SearchBar = () => {
                 type: 'track',
             },
             headers: {
-                'Authorization': `Bearer ${token}`
+                'Authorization': accTokenBearer
             },
         })
         .then((response) => {
@@ -47,7 +48,7 @@ const SearchBar = () => {
         console.log(uris);
         axios.get(`${BASE_URL}me`, {
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: accTokenBearer
             }
         }).then((response) => {
             console.log(response);
@@ -59,7 +60,7 @@ const SearchBar = () => {
                 },
                 {
                     headers: {
-                        'Authorization': `Bearer ${token}`,
+                        'Authorization': accTokenBearer,
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
                     }
@@ -71,7 +72,7 @@ const SearchBar = () => {
                             uris: uris
                         },
                         headers: {
-                            'Authorization': `Bearer ${token}`,
+                            'Authorization': accTokenBearer,
                             'Accept': 'application/json',
                             'Content-Type': 'application/json',
                         }
@@ -84,7 +85,7 @@ const SearchBar = () => {
 
     return (
         <>
-            <TokenGetter 
+        {/* <TokenGetter 
                 query={query}
                 handleSearch={handleSearch}
                 handleSearchValue={(e) => setQuery(e.target.value)}
@@ -98,7 +99,20 @@ const SearchBar = () => {
                         handleDescChanges={handleDescriptionChanges}
                     />
                 </>
-            }
+            } */}
+        {/* <Albums />
+        <hr></hr>
+        <TokenGetter 
+            query={query}
+            handleSearch={handleSearch}
+            handleSearchValue={(e) => setQuery(e.target.value)}
+        />
+        <PlaylistForm
+            handleFormSubmit={handleFormSubmit}
+            handleTitleChanges={handleTitleChanges}
+            handleDescChanges={handleDescriptionChanges}
+        />
+        <Track/> */}
         </>
     )
 }

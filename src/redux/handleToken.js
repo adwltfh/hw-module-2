@@ -4,13 +4,14 @@ import { getToken } from "./token";
 import LoginButton from "../components/navbar/login";
 import AppNavBar from "../components/navbar";
 import SearchBarComponent from "../components/navbar/search";
+import LoginPage from "../pages/Login";
 
 const TokenGetter = ({handleSearch, handleSearchValue, query}) => {
     const auth_env = {
-        BASE_URL: 'https://api.spotify.com/v1/',
-        CLIENT_ID: '5d5464f1b0004da2b17d88e18884af58',
-        AUTHORIZE_URL: 'https://accounts.spotify.com/authorize',
-        REDIRECT_URI: 'http://localhost:3000/callback/',
+        BASE_URL: process.env.REACT_APP_SPOTIFY_BASE_URL,
+        CLIENT_ID: process.env.REACT_APP_SPOTIFY_CLIENT_ID,
+        AUTHORIZE_URL: process.env.REACT_APP_SPOTIFY_AUTHORIZE_LINK,
+        REDIRECT_URI: process.env.REACT_APP_REDIRECT_URI,
         SCOPE: 'playlist-modify-private',
     }
 
@@ -38,21 +39,15 @@ const TokenGetter = ({handleSearch, handleSearchValue, query}) => {
     }
 
     return (
-        <AppNavBar>
-            {
-                token && 
-                <SearchBarComponent 
-                        query={query}
-                        handleSearch={handleSearch}
-                        handleSearchValue={handleSearchValue}
-                        handleLogout={handleLogout}
-                />
-            }
-            {
-                !token &&
-                <LoginButton {...auth_env} />
-            }
-        </AppNavBar>
+        // <AppNavBar>
+        //         <SearchBarComponent 
+        //             query={query}
+        //             handleSearch={handleSearch}
+        //             handleSearchValue={handleSearchValue}
+        //             handleLogout={handleLogout}
+        //         />
+        // </AppNavBar>
+        <LoginPage/>
     );
 }
 
