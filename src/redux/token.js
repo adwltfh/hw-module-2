@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 export const tokenSlice = createSlice({
-    name: "token",
+    name: 'token',
     initialState: {
         accTokenBearer: '',
         value: window.localStorage.getItem('token')

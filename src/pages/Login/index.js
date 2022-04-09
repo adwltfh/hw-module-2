@@ -1,6 +1,6 @@
-import React from "react";
-import AppNavBar from "../../components/navbar";
-import LoginButton from "../../components/navbar/login";
+import React from 'react';
+import AppNavBar from '../../components/navbar';
+import LoginButton from '../../components/navbar/login';
 
 const LoginPage = () => {
     return (
@@ -9,7 +9,7 @@ const LoginPage = () => {
                 <LoginButton />
             </AppNavBar>
         </>
-    )
-}
+    );
+};
 
 export default LoginPage;

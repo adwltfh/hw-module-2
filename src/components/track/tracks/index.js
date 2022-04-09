@@ -1,5 +1,5 @@
 import './style.css';
-import { SearchResult } from "../../../result-context/searchResult";
+import { SearchResult } from '../../../result-context/searchResult';
 
 const TracksInfo = ({cover, title, artists, uri, song}) => {
     const {selectedSongs, setSelectedSongs} = SearchResult();
@@ -8,10 +8,10 @@ const TracksInfo = ({cover, title, artists, uri, song}) => {
         const selected = selectedSongs.findIndex((song) => song.uri === uri);
         if (selected !== -1) return 'Deselect';
         return 'Select';
-    }
+    };
 
     const handleSelect = () => {
-        const selected = selectedSongs.findIndex((song) => song.uri === uri)
+        const selected = selectedSongs.findIndex((song) => song.uri === uri);
         if (selected > -1) {
             const newSongSelected = selectedSongs.filter((song) => song.uri !== uri);
             setSelectedSongs(newSongSelected);
@@ -20,7 +20,7 @@ const TracksInfo = ({cover, title, artists, uri, song}) => {
             const newSongSelected = [...selectedSongs, song];
             setSelectedSongs(newSongSelected);
         }
-    }
+    };
 
     // console.log(selectedSongs)
 
@@ -37,12 +37,12 @@ const TracksInfo = ({cover, title, artists, uri, song}) => {
                         <p>{artists}</p>
                     </div>
                     <button className="btn" onClick={handleSelect}>
-                            {generateButton()}
+                        {generateButton()}
                     </button>
                 </div>
             </div>
         </div>
     );
-}
+};
 
 export default TracksInfo;

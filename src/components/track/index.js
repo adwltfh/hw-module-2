@@ -1,6 +1,6 @@
-import TracksInfo from "./tracks";
-import data from "../../data/data";
-import { SearchResult } from "../../result-context/searchResult";
+import TracksInfo from './tracks';
+import data from '../../data/data';
+import { SearchResult } from '../../result-context/searchResult';
 import TracksContainer from '../../components/container';
 
 const Track = () => {
@@ -23,7 +23,7 @@ const Track = () => {
                                         uri={song.uri}
                                     />
                                 </TracksContainer>
-                            )
+                            );
                         })}
                     </div>
                     <br></br>
@@ -57,6 +57,6 @@ const Track = () => {
                 ))
             }
         </>
-    )
-}
+    );
+};
 export default Track;

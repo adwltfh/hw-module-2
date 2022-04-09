@@ -1,5 +1,5 @@
+import React from 'react';
 import './style.css';
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AppNavBar = ({children}) => {
     return (
@@ -7,14 +7,13 @@ const AppNavBar = ({children}) => {
             <div className="nav-container">
                 <div className="nav-logo">
                     <h2>Dawtify</h2>
-                    {/* <span><FontAwesomeIcon icon="fa-brands fa-spotify" /></span> */}
                 </div>
                 <nav>
                     {children}
                 </nav>
             </div>
         </section>
-    )
-}
+    );
+};
 
 export default AppNavBar;

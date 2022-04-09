@@ -4,6 +4,6 @@ const TracksContainer = ({children}) => {
             {children}
         </div>
     );
-}
+};
 
 export default TracksContainer;

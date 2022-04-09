@@ -7,7 +7,7 @@ const AlbumCover = ({cover}) => {
             />
         </div>
     );
-}
+};
 
 const AlbumInfo = ({title, artists, children}) => {
     return (
@@ -17,13 +17,13 @@ const AlbumInfo = ({title, artists, children}) => {
             {children}
         </div>
     );
-}
+};
 
 const AlbumButton = ({url}) => {
     return (
         <a href={url}><button className="albumBtn">Select</button></a>
     );
-}
+};
 
 export {
     AlbumCover,

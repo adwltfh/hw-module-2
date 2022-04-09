@@ -14,7 +14,7 @@ const Albums = () => {
                 </AlbumInfo>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Albums;
