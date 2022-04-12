@@ -1,0 +1,12 @@
+/* GRID */
+.grid-parent {
+    display: grid;
+    grid-template-columns: minmax(150px, 20%) 1fr;
+    padding: 30px 300px;
+}
+
+.grid-album {
+    display: grid;
+    grid-column: 1 / 3;
+    justify-content: center;
+}

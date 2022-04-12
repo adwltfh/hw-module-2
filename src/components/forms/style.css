@@ -1,16 +1,22 @@
 .crt-playlist-container {
-    width: 265px;
+    width: 300px;
     background-color: rgba(118, 88, 13, 0.83);
     border-radius: 10px;
-    margin: 20px 0 40px 0;
-    padding: 10px 30px;
-    height: 200px;
+    margin-top: 10px;
+    margin-left: 20px;
+    padding: 20px 30px;
+    height: 300px;
 }
 
 .crt-playlist-container h2 {
     margin-top: 10px;
     margin-bottom: 15px;
     color: white;
+    font-size: 30px;
+}
+
+.input-form {
+    margin-top: 25px;
 }
 
 .title-container {
@@ -27,8 +33,10 @@
     border-bottom: 2px solid rgb(167, 150, 150);
     background: transparent;
     color: white;
-    width: 200px;
+    width: 220px;
     margin-bottom: 10px;
+    height: 40px;
+    font-size: 23px;
 }
 
 .song-desc-lbl {
@@ -37,8 +45,10 @@
     border-bottom: 2px solid rgb(167, 150, 150);
     background: transparent;
     color: white;
-    width: 200px;
-    margin-bottom: 10px;
+    width: 220px;
+    margin-bottom: 20px;
+    height: 40px;
+    font-size: 23px;
 }
 
 ::placeholder {
@@ -52,9 +62,9 @@
     font-weight: bold;
     border: 2px solid rgb(174, 82, 39);
     border-radius: 80px;
-    width: 70px;
-    height: 30px;
-    font-size: 12px;
+    width: 100px;
+    height: 50px;
+    font-size: 18px;
 }
 
 .song-form-btn:hover {

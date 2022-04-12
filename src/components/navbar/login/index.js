@@ -1,3 +1,5 @@
+import '../style.css';
+
 const LoginButton = () => {
     const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI;
 
@@ -8,4 +10,14 @@ const LoginButton = () => {
     );
 };
 
-export default LoginButton;
+const LoginSign = () => {
+    return (
+        <div className="login-sign">
+            <div>
+                <h1>Please Log In.</h1>
+            </div>
+        </div>
+    );
+};
+
+export {LoginButton, LoginSign};

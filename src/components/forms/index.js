@@ -65,13 +65,13 @@ const PlaylistForm = () => {
     };
     
     return (
-        <div>
+        <>
             <PlaylistFormComponent
                 formInput={formInput}
                 handleFormInputChanges={handleFormInputChanges}
                 handleFormSubmit={handleFormSubmit}
             />
-        </div>
+        </>
     );
 
 };

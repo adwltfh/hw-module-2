@@ -4,7 +4,7 @@ import {AlbumCover, AlbumInfo, AlbumButton} from './album-info';
 
 const Albums = () => {
     return (
-        <div className="container">
+        <>
             <div className="album-container">
                 <AlbumCover cover={data.album.images[0].url} />
                 <AlbumInfo
@@ -13,7 +13,7 @@ const Albums = () => {
                     <AlbumButton url={data.album.external_urls.spotify} />
                 </AlbumInfo>
             </div>
-        </div>
+        </>
     );
 };
 
