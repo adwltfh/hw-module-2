@@ -6,7 +6,6 @@
 
 .cardFlex {
   flex-flow: column wrap;
-  /* padding-left: 20px; */
 }
 
 .tracks-container {
@@ -67,4 +66,18 @@
   margin-bottom: 500px;
   height: auto;
   height: 500px;
+}
+
+.tracks-grid-component {
+  display: flex;
+  flex-direction: row;
+  column-gap: 30px;
+}
+
+.cover-img-container {
+
+}
+
+.song-info-container {
+
 }

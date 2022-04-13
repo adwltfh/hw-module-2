@@ -4,11 +4,8 @@
   padding: 0;
 }
 
-.App {
-  text-align: center;
-}
 
-body {
+html {
   font-family: sans-serif;
   background-image: url(./assets/bg2.jpg);
   background-position: center;
