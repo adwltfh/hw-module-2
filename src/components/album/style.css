@@ -1,27 +1,16 @@
-.album-container {
-  width: 1170px;
-  background-color: rgba(118, 88, 13, 0.83);
-  border-radius: 10px;
-  margin: 120px 0 20px 0;
-  padding: 40px;
-  height: 380px;
-  display: inline-block;
-}
-
 .img-container {
   float: left;
+  margin-right: 70px;
 }
 
 .album-cover {
-  height: 300px;
-  width: 300px;
+  height: 250px;
+  width: 250px;
   border-radius: 10px;
 }
 
 .album-title {
-  height: 300px;
-  float: right;
-  padding: 120px 0 0 0;
+  padding: 30px 0;
 }
 
 .album-title h1 {

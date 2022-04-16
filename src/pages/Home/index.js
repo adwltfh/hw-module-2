@@ -1,32 +1,40 @@
 import './style.css';
-import PlaylistForm from '../../components/forms';
 import Albums from '../../components/album';
 import Track from '../../components/track';
 import SearchBarComponent from '../../components/navbar/search';
 import { Grid } from '@mui/material';
-import { Box } from '@mui/system';
+import { makeStyles } from '@material-ui/core';
+import { flexbox } from '@mui/system';
+
+const useStyle = makeStyles((theme) => ({
+    container: {
+        display: 'flex',
+        justifyContent: 'center',
+    },
+    tracks: {
+        display: 'flex',
+        justifyContent: 'center',
+        paddingLeft: 20,
+    },
+}));
 
 const HomePage = () => {
-    return (
-        <>
-            <Box sx={{ flexGrow: 1 }}>
-                <Grid container spacing={2}>
-                    <Grid item xs={6} md={12}>
-                        <SearchBarComponent />
-                    </Grid>
-                    <Grid item xs={6} md={12}>
-                        <Albums />
-                    </Grid>
-                    <Grid item xs={6} md={3}>
-                        <PlaylistForm />
-                    </Grid>
-                    <Grid item xs={6} md={9}>
-                        <Track />
-                    </Grid>
-                </Grid>
-            </Box>
-        </>
+    const classes = useStyle();
 
+    return (
+        <Grid container spacing={3} className={classes.container}>
+            <Grid lg={12} item={true}>
+                <SearchBarComponent />
+            </Grid>
+            <Grid lg={12} item={true}>
+                <Albums />
+            </Grid>
+            <Grid className={classes.tracks}>
+                <Grid lg={6} item={true}>
+                    <Track />
+                </Grid>
+            </Grid>
+        </Grid>
     );
 };
 

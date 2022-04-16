@@ -1,19 +1,11 @@
+import { ImageListItem } from '@mui/material';
 import './style.css';
 
-const SelectedTracks = ({cover, title, artists, uri, song}) => {
+const SelectedTracks = ({children}) => {
     return (
-        <div className="tracks-grid-component">
-            <div className="cover-img-container">
-                <img 
-                    src={cover}
-                />
-            </div>
-            <div className="song-info-container">
-                <h4>{title}</h4>
-                <p>{artists}</p>
-            </div>
-        </div>
+        <ImageListItem>
+            {children}
+        </ImageListItem>
     );
 };
-
 export default SelectedTracks;

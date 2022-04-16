@@ -11,6 +11,10 @@ import Stack from '@mui/material/Stack';
 import AppNavBar from '..';
 import { Button } from '@mui/material';
 
+type Props = {
+
+}
+
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -84,11 +88,6 @@ const SearchBarComponent = () => {
         setQueryInput(e.target.value);
     };
 
-    //HANDLE LOGOUT
-    // const handleLogout = () => {
-    //     window.localStorage.removeItem(accTokenBearer)
-    // }
-
     return (
         <AppNavBar>
             <Search>
@@ -109,13 +108,4 @@ const SearchBarComponent = () => {
     );
 };
 
-{/* <ul>
-    <li>
-        <input className="search-bar" value={queryInput} onChange={handleQueryInputChanges}></input>
-        <button className="search-btn" type="submit" onClick={handleSearchQueryInput}>Search</button>
-    </li>
-    <li>
-        <button className='logout-btn'>Logout</button>
-    </li>
-</ul> */}
 export default SearchBarComponent;

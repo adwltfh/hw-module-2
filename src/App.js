@@ -11,7 +11,6 @@ import HomePage from './pages/Home';
 import LoginPage from './pages/Login';
 
 const App = () => {
-    // const {result} = SearchResult();
     const {accTokenBearer} = useSelector((state) => state.token);
     const dispatch = useDispatch();
 

@@ -13,34 +13,36 @@
   padding: 10px;
   padding-bottom: 20px;
   float: left;
+
 } 
 
 .tracks-component {
   padding: 30px 10px 0 10px;
-  width: 260px;
-  height: 450px;
+  width: 200px;
+  height: 370px;
   background-color: rgba(141, 102, 18, 0.679);
   border: 1px solid rgb(118, 88, 13);
   border-radius: 5px;
 }
 
 .cover-img {
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   border: 1px solid rgba(97, 75, 20, 0.707);
 }
 
 .song-info {
-  margin: 30px 10px;
+  margin: 20px 10px;
+  max-height: 5px;
 }
 
 .song-info h4 {
-  color: rgb(209, 205, 205);
+  color: rgb(0, 0, 0);
 }
 
 .song-info p {
   margin: 10px 0 10px 0;
-  color: rgb(192, 170, 170);
+  color: rgb(83, 69, 69);
 }
 
 .btn {
@@ -52,7 +54,7 @@
   border: 2px solid rgb(174, 82, 39);
   border-radius: 80px;
 
-  margin: 20px 0;
+  margin: 80px 0;
 }
 
 .btn:hover {
@@ -63,7 +65,7 @@
 }
 
 .selected-tracks-container {
-  margin-bottom: 500px;
+  margin-bottom: 10px;
   height: auto;
   height: 500px;
 }

@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { SearchResult } from '../../result-context/searchResult';
 import PlaylistFormComponent from './forms-comp';
+import { Button, Modal } from '@mui/material';
 
 const PlaylistForm = () => {
     const {accTokenBearer} = useSelector((state) => state.token);
@@ -13,7 +14,7 @@ const PlaylistForm = () => {
         titleInput: '',
         descriptionInput: '',
     });
-    const {selectedSongs, setSelectedSongs} = SearchResult();
+    const {selectedSongs} = SearchResult();
 
     const handleFormInputChanges = (e) => {
         const {name, value} = e.target;
@@ -63,14 +64,24 @@ const PlaylistForm = () => {
             console.error(err);
         }
     };
+
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
     
     return (
         <>
-            <PlaylistFormComponent
-                formInput={formInput}
-                handleFormInputChanges={handleFormInputChanges}
-                handleFormSubmit={handleFormSubmit}
-            />
+            <Button onClick={handleOpen}>Make Playlist</Button>
+            <Modal
+                open={open}
+                onClose={handleClose}
+            >
+                <PlaylistFormComponent
+                    formInput={formInput}
+                    handleFormInputChanges={handleFormInputChanges}
+                    handleFormSubmit={handleFormSubmit}
+                />
+            </Modal>
         </>
     );
 
