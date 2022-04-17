@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { makeStyles } from '@material-ui/core/styles';
+import { Avatar } from '@mui/material';
 
 const useStyles = makeStyles(theme => ({
     toolbar: {
@@ -39,6 +42,28 @@ const useStyles = makeStyles(theme => ({
 const AppNavBar = ({children}) => {
     const classes = useStyles();
 
+    const {accTokenBearer} = useSelector((state) => state.token);
+
+    //USER PROFILE DISPLAY
+    const [displayName, setDisplayName] = useState();
+    const [profleImage, setProfileImage] = useState();
+
+    const getProfile = async() => {
+        try {
+            const response = await axios.get(`${process.env.REACT_APP_SPOTIFY_BASE_URL}me`, {
+                headers: {
+                    Authorization: accTokenBearer
+                }
+            });
+            setDisplayName(response.data.display_name);
+            setProfileImage(response.data.images[0]['url']);
+        } catch(err) {
+            console.log(err);
+        }
+    };
+
+    getProfile();
+
     return (
         <Container>
             <Box sx={{ flexGrow: 1 }}>
@@ -53,6 +78,23 @@ const AppNavBar = ({children}) => {
                     </Typography>
                     <Box className={classes.menu}>
                         {children}
+                    </Box>
+                    <Box>
+                        <h4>Hi, {displayName}</h4>
+        
+                        <Avatar
+                            src={profleImage}
+                            sx={{
+                                mx: 'auto',
+                                height: 40,
+                                width: 40,
+                                bgcolor: '#323031',
+                                '@media(max-width: 670px)': {
+                                    height: 60,
+                                    width: 60,
+                                },
+                            }}
+                        />
                     </Box>
                 </Toolbar>
             </Box>

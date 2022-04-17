@@ -57,7 +57,7 @@ const PlaylistForm = () => {
                             'Content-Type': 'application/json',
                         }
                     });
-                    alert(`Playlist ${formInput.titleInput} successfully added`);
+                    alert(`Playlist ${formInput.titleInput} successfully created`);
                 });
             });
         } catch(err) {

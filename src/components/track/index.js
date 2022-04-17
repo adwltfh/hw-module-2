@@ -1,7 +1,7 @@
 import TracksInfo from './tracks';
 import data from '../../data/data';
 import { SearchResult } from '../../result-context/searchResult';
-import TracksContainer from '../../components/container';
+import TracksContainer from '../container';
 import SelectedTracks from './tracks/selected';
 import { ImageList } from '@mui/material';
 import PlaylistForm from '../forms';
@@ -62,7 +62,6 @@ const Track = () => {
                             title={song.name}
                             artists={song.artists[0].name}
                             uri={song.uri}
-                            song={song}
                             duration={ms_to_minute(song.duration_ms)}
                         />
                     </TracksContainer>
@@ -77,7 +76,6 @@ const Track = () => {
                             title={song.name}
                             artists={song.artists[0].name}
                             uri={song.uri}
-                            song={song}
                             duration={ms_to_minute(song.duration_ms)}
                         />
                     </TracksContainer>

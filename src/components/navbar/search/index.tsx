@@ -3,17 +3,13 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SearchResult } from '../../../result-context/searchResult';
+
 import { styled, alpha } from '@mui/material/styles';
+import { Button } from '@mui/material';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import Stack from '@mui/material/Stack';
-
 import AppNavBar from '..';
-import { Button } from '@mui/material';
-
-type Props = {
-
-}
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -57,12 +53,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-const SearchBarComponent = () => {
-    const {accTokenBearer} = useSelector((state) => state.token);
+const SearchBarComponent: React.FC = () => {
+    const {accTokenBearer} = useSelector((state: any) => state.token);
     const dispatch = useDispatch();
 
     const [queryInput, setQueryInput] = useState('');
-    const {result, setResult} = SearchResult();
+    const {setResult}: any = SearchResult();
 
     const handleSearchQueryInput = () => {
         const getSearchData = async() =>{ 
@@ -89,6 +85,7 @@ const SearchBarComponent = () => {
     };
 
     return (
+
         <AppNavBar>
             <Search>
                 <SearchIconWrapper>

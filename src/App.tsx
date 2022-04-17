@@ -10,8 +10,8 @@ import store from './redux/store';
 import HomePage from './pages/Home';
 import LoginPage from './pages/Login';
 
-const App = () => {
-    const {accTokenBearer} = useSelector((state) => state.token);
+const App: React.FC = () => {
+    const {accTokenBearer} = useSelector((state:any) => state.token);
     const dispatch = useDispatch();
 
     const callLogin = () => {
@@ -56,7 +56,7 @@ const App = () => {
     );
 };
 
-const AppContainer = () => {
+const AppContainer: React.FC = () => {
     return (
         <Provider store={store}>
             <SearchProvider>

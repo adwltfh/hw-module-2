@@ -4,8 +4,8 @@ import Track from '../../components/track';
 import SearchBarComponent from '../../components/navbar/search';
 import { Grid } from '@mui/material';
 import { makeStyles } from '@material-ui/core';
-import { flexbox } from '@mui/system';
 
+//MUI STYLE
 const useStyle = makeStyles((theme) => ({
     container: {
         display: 'flex',
@@ -17,6 +17,7 @@ const useStyle = makeStyles((theme) => ({
         paddingLeft: 20,
     },
 }));
+//MUI STYLE
 
 const HomePage = () => {
     const classes = useStyle();
