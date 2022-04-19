@@ -1,20 +1,19 @@
-# Getting Started with Create React App
+# Dawtify - Spotify Playlist App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### About Project
 
-## Available Scripts
+This is a website based app to search and create your own playlist with your favorite songs. This application uses the [Spotify Website API](https://developer.spotify.com/documentation/web-api/) so that your palylist you have made will be added directly to your account. You can also see your profile information through this application.
 
-In the project directory, you can run:
+### Built With
 
-### `npm start`
+This project is built using [React.js](https://reactjs.org/docs/getting-started.html) as the major framework and some libraries, such as:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [React Router](https://reactrouter.com/) as the navigational component,
+- [Material UI](https://material-ui.com/) as the UI component,
+- [Typescript](https://www.typescriptlang.org/) for defining the variables,
+- [Redux](https://github.com/axios/axios) for fetching the data from API.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
+## `npm test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.

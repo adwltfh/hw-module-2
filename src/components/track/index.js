@@ -1,12 +1,22 @@
 import TracksInfo from './tracks';
 import data from '../../data/data';
 import { SearchResult } from '../../result-context/searchResult';
-import TracksContainer from './tracks/container';
+import { makeStyles } from '@material-ui/core/styles';
 import SelectedTracks from './tracks/selected';
 import { ImageList } from '@mui/material';
 import PlaylistForm from '../forms';
+import { Typography } from '@material-ui/core';
+
+const useStyles = makeStyles(theme => ({
+    logo: {
+        letterSpacing: 1,
+        textAlign: 'center',
+        paddingBottom: 10,
+    },
+}));
 
 const Track = () => {
+    const classes = useStyles();
     const {result, selectedSongs} = SearchResult();
     const ms_to_minute = (ms) => {
         let s, m;
@@ -25,7 +35,14 @@ const Track = () => {
                 selectedSongs.length > 0 &&
                 <>
                     <div className="selected-tracks-container">
-                        <h2>Selected Songs</h2>
+                        <Typography
+                            variant="h4"
+                            noWrap
+                            component="h2"
+                            className={classes.logo}
+                        >
+                            Selected Songs
+                        </Typography>
                         <ImageList
                             sx={{ gridAutoFlow: 'column', 
                                 gridTemplateColumns: 'repeat(max(200px, 1fr))', 
@@ -36,7 +53,6 @@ const Track = () => {
                             gap={20}
                         >
                             {selectedSongs.map((song) => {
-                                console.log(song);
                                 return (
                                     <SelectedTracks key={song.uri}>
                                         <TracksInfo 
@@ -58,31 +74,32 @@ const Track = () => {
             }
             {
                 result.length === 0 && data.map((song) => (
-                    <TracksContainer key={song.id}>
-                        <TracksInfo
-                            cover={song.album.images[0].url}
-                            title={song.name}
-                            artists={song.artists[0].name}
-                            song={song}
-                            uri={song.uri}
-                            duration={ms_to_minute(song.duration_ms)}
-                        />
-                    </TracksContainer>
+                    <TracksInfo
+                        key={song.id}
+                        cover={song.album.images[0].url}
+                        title={song.name}
+                        artists={song.artists[0].name}
+                        song={song}
+                        uri={song.uri}
+                        duration={ms_to_minute(song.duration_ms)}
+                    />
+                    // <TracksContainer key={song.id}>
+                    // </TracksContainer>
                 ))
             }
             {
                 result.length > 0 && result.map((song) => (
-                    <TracksContainer key={song.id}>
-                        <TracksInfo
-                            key={song.id}
-                            cover={song.album.images[0].url}
-                            title={song.name}
-                            artists={song.artists[0].name}
-                            song={song}
-                            uri={song.uri}
-                            duration={ms_to_minute(song.duration_ms)}
-                        />
-                    </TracksContainer>
+                    <TracksInfo
+                        key={song.id}
+                        cover={song.album.images[0].url}
+                        title={song.name}
+                        artists={song.artists[0].name}
+                        song={song}
+                        uri={song.uri}
+                        duration={ms_to_minute(song.duration_ms)}
+                    />
+                    // <TracksContainer key={song.id}>
+                    // </TracksContainer>
                 ))
             }
         </>

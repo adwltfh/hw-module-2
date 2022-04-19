@@ -1,11 +1,22 @@
 import './style.css';
-import React, { ChangeEvent, FormEvent, FormEventHandler } from 'react';
+import React, { ChangeEvent, Context, FormEvent, FormEventHandler } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { SearchResult } from '../../result-context/searchResult';
 import PlaylistFormComponent from './forms-comp';
 import { Button, Modal } from '@mui/material';
+import { Box } from '@material-ui/core';
+
+const style: any = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    boxShadow: 24,
+    p: 4,
+};
 
 const PlaylistForm: React.FC = () => {
     const {accTokenBearer} = useSelector((state: any) => state.token);
@@ -71,16 +82,22 @@ const PlaylistForm: React.FC = () => {
     
     return (
         <>
-            <Button onClick={handleOpen}>Make Playlist</Button>
+            <div className='btn-playlist-container'>
+                <Button variant="contained" size="large" onClick={handleOpen} className="make-playlist-btn">
+                    Make Playlist
+                </Button>
+            </div>
             <Modal
                 open={open}
                 onClose={handleClose}
             >
-                <PlaylistFormComponent
-                    formInput={formInput}
-                    handleFormInputChanges={handleFormInputChanges}
-                    handleFormSubmit={handleFormSubmit}
-                />
+                <Box sx={style}>
+                    <PlaylistFormComponent
+                        formInput={formInput}
+                        handleFormInputChanges={handleFormInputChanges}
+                        handleFormSubmit={handleFormSubmit}
+                    />
+                </Box>
             </Modal>
         </>
     );
