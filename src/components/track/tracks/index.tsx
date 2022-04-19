@@ -1,25 +1,29 @@
 import './style.css';
 import { SearchResult } from '../../../result-context/searchResult';
-import {Tracks} from '../../../data/TracksInterfaces';
+import { Tracks } from '../../../data/TracksInterfaces';
 
-interface Props {
-    TracksElement: Tracks;
+type Props = {
+    cover: string
+    title: string
+    artists: string
+    uri: string
+    song: any
+    duration: any
 }
 
-const TracksInfo: React.FC<Props> = ({TracksElement}) => {
-    const {cover, title, artists, uri, song, duration} = TracksElement;
-    const {selectedSongs, setSelectedSongs}: any = SearchResult();
+const TracksInfo = ({cover, title, artists, uri, song, duration}: Props) => {
+    const {selectedSongs, setSelectedSongs} = SearchResult();
 
     const generateButton = () => {
-        const selected = selectedSongs.findIndex((song: { uri: string; }) => song.uri === uri);
+        const selected = selectedSongs.findIndex((song: Tracks) => song.uri === uri);
         if (selected !== -1) return 'Deselect';
         return 'Select';
     };
 
     const handleSelect = () => {
-        const selected = selectedSongs.findIndex((song: { uri: string; }) => song.uri === uri);
+        const selected = selectedSongs.findIndex((song: Tracks) => song.uri === uri);
         if (selected > -1) {
-            const newSongSelected = selectedSongs.filter((song: { uri: string; }) => song.uri !== uri);
+            const newSongSelected = selectedSongs.filter((song: Tracks) => song.uri !== uri);
             setSelectedSongs(newSongSelected);
         }
         else {
@@ -29,21 +33,24 @@ const TracksInfo: React.FC<Props> = ({TracksElement}) => {
     };
 
     return (
-        <div className="card">
-            <div className='cardFlex'>
-                <div className="tracks-component">
-                    <img 
-                        className="cover-img"
-                        src={cover}
-                    />
-                    <div className="song-info">
-                        <h4>{title}</h4>
-                        <p>{artists}</p>
-                        <p>{duration}</p>
+        <div className="tracks-container">
+            <div className="card">
+                <div className='cardFlex'>
+                    <div className="tracks-component">
+                        <img 
+                            className="cover-img"
+                            src={cover}
+                            alt='album'
+                        />
+                        <div className="song-info">
+                            <h4>{title}</h4>
+                            <p>{artists}</p>
+                            <p>{duration}</p>
+                        </div>
+                        <button className="btn" onClick={handleSelect}>
+                            {generateButton()}
+                        </button>
                     </div>
-                    <button className="btn" onClick={handleSelect}>
-                        {generateButton()}
-                    </button>
                 </div>
             </div>
         </div>

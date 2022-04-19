@@ -1,7 +1,11 @@
 import { ImageListItem } from '@mui/material';
 import './style.css';
 
-const SelectedTracks = ({children}) => {
+type Props = {
+    children: JSX.Element
+}
+
+const SelectedTracks = ({children}: Props) => {
     return (
         <ImageListItem>
             {children}

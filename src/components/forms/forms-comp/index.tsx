@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { ChangeEvent, FormEvent, FormEventHandler } from 'react';
 
-const PlaylistFormComponent = ({formInput, handleFormSubmit, handleFormInputChanges}) => {
+type Props = {
+    formInput: any
+    handleFormInputChanges: (e: ChangeEvent<HTMLInputElement>) => void
+    handleFormSubmit: (e: FormEvent) => void
+}
+
+const PlaylistFormComponent: React.FC<Props> = ({formInput, handleFormSubmit, handleFormInputChanges}) => {
     return (
         <div className='crt-playlist-container'>
             <h2>Create Playlist</h2>
@@ -14,7 +20,7 @@ const PlaylistFormComponent = ({formInput, handleFormSubmit, handleFormInputChan
                             type="text"
                             onChange={handleFormInputChanges}
                             value={formInput.titleInput}
-                            minLength="10"
+                            minLength={10}
                             placeholder='Title'
                         />
                     </div>

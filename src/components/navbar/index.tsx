@@ -39,14 +39,14 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const AppNavBar = ({children}) => {
+const AppNavBar: React.FC = ({children}) => {
     const classes = useStyles();
 
-    const {accTokenBearer} = useSelector((state) => state.token);
+    const {accTokenBearer} = useSelector((state: any) => state.token);
 
     //USER PROFILE DISPLAY
-    const [displayName, setDisplayName] = useState();
-    const [profleImage, setProfileImage] = useState();
+    const [displayName, setDisplayName] = useState<string>();
+    const [profleImage, setProfileImage] = useState<string>();
 
     const getProfile = async() => {
         try {

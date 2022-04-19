@@ -4,7 +4,7 @@ export interface Album {
     external_urls: ExternalUrls;
     href: string;
     id: string;
-    images: Images[];
+    images: Image[];
     name: string;
     release_date: string;
     release_date_precision: string;
@@ -26,7 +26,7 @@ export interface ArtistsExternalUrls {
     spotify: string;
 }
 
-export interface Images {
+export interface Image {
     height: number;
     url: string;
     width: number;
@@ -42,10 +42,9 @@ export interface songCoverImage {
 
 //Tracks Components
 export interface Tracks {
-    cover: Images["url"];
+    cover: Album;
     artists: Artists[];
     title: string;
-    song: string;
     duration: number;
     id: string;
     name: string;

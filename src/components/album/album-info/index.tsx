@@ -1,4 +1,11 @@
-const AlbumCover = ({cover}) => {
+type Props = {
+    cover: string
+    title: string
+    artists: string
+    url: string
+}
+
+const AlbumCover = ({cover}: Props) => {
     return (
         <div className="img-container">
             <img 
@@ -9,24 +16,17 @@ const AlbumCover = ({cover}) => {
     );
 };
 
-const AlbumInfo = ({title, artists, children}) => {
+const AlbumInfo = ({title, artists, url}: Props) => {
     return (
         <div className="album-title">
             <h1>{title}</h1>
             <p>{artists}</p>
-            {children}
+            <a href={url}><button className="albumBtn">Select</button></a>
         </div>
-    );
-};
-
-const AlbumButton = ({url}) => {
-    return (
-        <a href={url}><button className="albumBtn">Select</button></a>
     );
 };
 
 export {
     AlbumCover,
     AlbumInfo,
-    AlbumButton
 };

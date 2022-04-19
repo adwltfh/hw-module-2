@@ -6,7 +6,7 @@ import { Grid } from '@mui/material';
 import { makeStyles } from '@material-ui/core';
 
 //MUI STYLE
-const useStyle = makeStyles((theme) => ({
+const useStyle = makeStyles(() => ({
     container: {
         display: 'flex',
         justifyContent: 'center',
@@ -14,7 +14,6 @@ const useStyle = makeStyles((theme) => ({
     tracks: {
         display: 'flex',
         justifyContent: 'center',
-        paddingLeft: 20,
     },
 }));
 //MUI STYLE

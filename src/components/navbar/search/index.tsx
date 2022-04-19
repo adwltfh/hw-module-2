@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -57,8 +57,8 @@ const SearchBarComponent: React.FC = () => {
     const {accTokenBearer} = useSelector((state: any) => state.token);
     const dispatch = useDispatch();
 
-    const [queryInput, setQueryInput] = useState('');
-    const {setResult}: any = SearchResult();
+    const [queryInput, setQueryInput] = useState<string>('');
+    const {setResult} = SearchResult();
 
     const handleSearchQueryInput = () => {
         const getSearchData = async() =>{ 
@@ -80,7 +80,7 @@ const SearchBarComponent: React.FC = () => {
         getSearchData();
     };
 
-    const handleQueryInputChanges = (e) => {
+    const handleQueryInputChanges = (e: ChangeEvent<HTMLInputElement>) => {
         setQueryInput(e.target.value);
     };
 

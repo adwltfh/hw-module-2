@@ -7,13 +7,15 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
     "settings": {
         "react": {
             "version": "detect"
         }
     },
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -22,9 +24,12 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "@typescript-eslint"
     ],
     "rules": {
+        "no-empty-function": "off",
+        "@typescript-eslint/no-empty-function": ["error"],
         "react/react-in-jsx-scope": "off",
         "no-unused-vars": 0,
         "indent": [

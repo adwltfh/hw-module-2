@@ -1,7 +1,7 @@
 import TracksInfo from './tracks';
 import data from '../../data/data';
 import { SearchResult } from '../../result-context/searchResult';
-import TracksContainer from '../container';
+import TracksContainer from './tracks/container';
 import SelectedTracks from './tracks/selected';
 import { ImageList } from '@mui/material';
 import PlaylistForm from '../forms';
@@ -36,12 +36,14 @@ const Track = () => {
                             gap={20}
                         >
                             {selectedSongs.map((song) => {
+                                console.log(song);
                                 return (
                                     <SelectedTracks key={song.uri}>
                                         <TracksInfo 
                                             cover={song.album.images[0].url}
                                             title={song.name}
                                             artists={song.artists[0].name}
+                                            song={song}
                                             uri={song.uri}
                                             duration={ms_to_minute(song.duration_ms)}
                                         />
@@ -61,6 +63,7 @@ const Track = () => {
                             cover={song.album.images[0].url}
                             title={song.name}
                             artists={song.artists[0].name}
+                            song={song}
                             uri={song.uri}
                             duration={ms_to_minute(song.duration_ms)}
                         />
@@ -75,6 +78,7 @@ const Track = () => {
                             cover={song.album.images[0].url}
                             title={song.name}
                             artists={song.artists[0].name}
+                            song={song}
                             uri={song.uri}
                             duration={ms_to_minute(song.duration_ms)}
                         />

@@ -1,5 +1,5 @@
 import './style.css';
-import React from 'react';
+import React, { ChangeEvent, FormEvent, FormEventHandler } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
@@ -7,8 +7,8 @@ import { SearchResult } from '../../result-context/searchResult';
 import PlaylistFormComponent from './forms-comp';
 import { Button, Modal } from '@mui/material';
 
-const PlaylistForm = () => {
-    const {accTokenBearer} = useSelector((state) => state.token);
+const PlaylistForm: React.FC = () => {
+    const {accTokenBearer} = useSelector((state: any) => state.token);
 
     const [formInput, setFormInput] = useState({
         titleInput: '',
@@ -16,14 +16,14 @@ const PlaylistForm = () => {
     });
     const {selectedSongs} = SearchResult();
 
-    const handleFormInputChanges = (e) => {
+    const handleFormInputChanges = (e: ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
         setFormInput({...formInput, [name]: value});
     };
 
-    const handleFormSubmit = async (e) => {
+    const handleFormSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        const uris = selectedSongs.map((song) => song.uri);
+        const uris = selectedSongs.map((song: { uri: any; }) => song.uri);
         console.log(uris);
         try {
             axios.get(`${process.env.REACT_APP_SPOTIFY_BASE_URL}me`, {
@@ -65,7 +65,7 @@ const PlaylistForm = () => {
         }
     };
 
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState<boolean>(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     

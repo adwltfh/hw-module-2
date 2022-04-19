@@ -1,6 +1,6 @@
 import './style.css';
 import data from '../../data/data1';
-import {AlbumCover, AlbumInfo, AlbumButton} from './album-info';
+import {AlbumCover, AlbumInfo} from './album-info';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@mui/material';
 
@@ -47,8 +47,8 @@ const Albums = () => {
                     <AlbumCover cover={data.album.images[0].url} />
                     <AlbumInfo
                         title={data.album.name}
-                        artists={data.artists[0].name}>
-                        <AlbumButton url={data.album.external_urls.spotify} />
+                        artists={data.artists[0].name}
+                        url={data.album.external_urls.spotify}>
                     </AlbumInfo>
                 </Grid>
             </Grid>
