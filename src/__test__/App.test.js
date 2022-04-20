@@ -41,37 +41,37 @@ test('searchbar functionality test', () => {
     userEvent.type(input, 'test');
 });
 
-test('tracks render functionality test', () => {
-    render (
-        <Provider store={store}>
-            <SearchProvider>
-                <Track
-                    cover={data.album.images[0].url}
-                    title={data.name}
-                    artists={data.artists[0].name}
-                    duration={()=>({})}
-                    uri={data.uri}
-                    song={data}
-                />
-            </SearchProvider>
-        </Provider>
-    );
+// test('tracks render functionality test', () => {
+//     render (
+//         <Provider store={store}>
+//             <SearchProvider>
+//                 <Track
+//                     cover={data.album.images[0].url}
+//                     title={data.name}
+//                     artists={data.artists[0].name}
+//                     duration={()=>({})}
+//                     uri={data.uri}
+//                     song={data}
+//                 />
+//             </SearchProvider>
+//         </Provider>
+//     );
 
-    // cover
-    const cover = screen.getByRole('img');
-    expect(cover).toHaveAttribute('src', data.album.images[0].url);
+//     // cover
+//     const cover = screen.getByRole('img');
+//     expect(cover).toHaveAttribute('src', data.album.images[0].url);
 
-    // title
-    expect(screen.getByText(data.name)).toBeInTheDocument();
+//     // title
+//     expect(screen.getByText(data.name)).toBeInTheDocument();
 
-    // artists
-    expect(screen.getByText(data.artists[0].name));
+//     // artists
+//     expect(screen.getByText(data.artists[0].name));
 
-    expect(screen.getByText('Select')).toBeInTheDocument();
+//     expect(screen.getByText('Select')).toBeInTheDocument();
 
-    const selectButton = screen.getByText('Select');
-    userEvent.click(selectButton);
-    expect(screen.getByText('Deselect')).toBeInTheDocument();
-});
+//     const selectButton = screen.getByText('Select');
+//     userEvent.click(selectButton);
+//     expect(screen.getByText('Deselect')).toBeInTheDocument();
+// });
 
 //
