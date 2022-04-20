@@ -43,26 +43,6 @@ const AppNavBar: React.FC = ({children}) => {
 
     const {accTokenBearer} = useSelector((state: any) => state.token);
 
-    // //USER PROFILE DISPLAY
-    // const [displayName, setDisplayName] = useState<string>();
-    // const [profleImage, setProfileImage] = useState<string>();
-
-    // const getProfile = async() => {
-    //     try {
-    //         const response = await axios.get(`${process.env.REACT_APP_SPOTIFY_BASE_URL}me`, {
-    //             headers: {
-    //                 Authorization: accTokenBearer
-    //             }
-    //         });
-    //         setDisplayName(response.data.display_name);
-    //         setProfileImage(response.data.images[0]['url']);
-    //     } catch(err) {
-    //         console.log(err);
-    //     }
-    // };
-
-    // getProfile();
-
     return (
         <Container>
             <Box sx={{ flexGrow: 1 }}>
