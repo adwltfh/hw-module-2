@@ -1,5 +1,5 @@
 import { ImageListItem } from '@mui/material';
-import './style.css';
+import '../style.css';
 
 type Props = {
     children: JSX.Element

@@ -44,13 +44,13 @@ const Track = () => {
                             Selected Songs
                         </Typography>
                         <ImageList
-                            sx={{ gridAutoFlow: 'column', 
-                                gridTemplateColumns: 'repeat(max(200px, 1fr))', 
-                                gridAutoColumns: 'max(200px, 1fr)',
-                                textAlign: 'center',
-                                mx: 4,
+                            sx={{ 
+                                width: 1200,
+                                gridAutoFlow: 'column', 
+                                gridAutoColumns: 'max(100px, 1fr)',
+                                mx: 2,
                             }}
-                            gap={20}
+                            gap={3}
                         >
                             {selectedSongs.map((song) => {
                                 return (

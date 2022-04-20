@@ -1,4 +1,4 @@
-import './style.css';
+import '../style.css';
 import { SearchResult } from '../../../result-context/searchResult';
 import { Tracks } from '../../../data/TracksInterfaces';
 
@@ -44,8 +44,8 @@ const TracksInfo = ({cover, title, artists, uri, song, duration}: Props) => {
                         />
                         <div className="song-info">
                             <h4>{title}</h4>
-                            <p>{artists}</p>
-                            <p>{duration}</p>
+                            <p className='artists'>{artists}</p>
+                            <p className='duration'>{duration}</p>
                         </div>
                         <button className="btn" onClick={handleSelect}>
                             {generateButton()}

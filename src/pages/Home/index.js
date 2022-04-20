@@ -4,6 +4,7 @@ import Track from '../../components/track';
 import SearchBarComponent from '../../components/navbar/search';
 import { Grid } from '@mui/material';
 import { makeStyles } from '@material-ui/core';
+import { CenterFocusStrong } from '@mui/icons-material';
 
 //MUI STYLE
 const useStyle = makeStyles(() => ({
@@ -11,9 +12,12 @@ const useStyle = makeStyles(() => ({
         display: 'flex',
         justifyContent: 'center',
     },
-    tracks: {
+    tracksComp: {
         display: 'flex',
         justifyContent: 'center',
+        marginLeft: 24,
+        marginRight: 24,
+        width: 2200
     },
 }));
 //MUI STYLE
@@ -22,15 +26,12 @@ const HomePage = () => {
     const classes = useStyle();
 
     return (
-        <Grid container spacing={3} className={classes.container}>
+        <Grid container className={classes.container}>
             <Grid lg={12} item={true}>
                 <SearchBarComponent />
             </Grid>
-            <Grid lg={12} item={true}>
-                <Albums />
-            </Grid>
-            <Grid className={classes.tracks}>
-                <Grid lg={6} item={true}>
+            <Grid className={classes.tracksComp}>
+                <Grid lg={6} item={true} className={classes.tracks}>
                     <Track />
                 </Grid>
             </Grid>

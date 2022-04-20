@@ -92,7 +92,6 @@ nav ul li {
   border-left: 0.5px solid rgb(199, 89, 38);
   display: inline-block;
   margin-top: 15px;
-  margin-left: 20px;
   background-color: rgb(199, 89, 38);
   border: solid rgb(199, 89, 38);
   color: rgb(233, 225, 225);
@@ -109,4 +108,26 @@ nav ul li {
 
 .login-sign h1 {
   color: rgb(236, 232, 232);
+}
+
+@media only screen and (max-width: 600px) {
+  .login-btn {
+    height: 40px;
+    width: 60px;
+    border-radius: 100px;
+    display: inline-block;
+    margin-top: 15px;
+    margin-right: 20px;
+    background-color: rgb(129, 166, 234);
+    border: 0;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+  }
+
+  .login-sign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+  }
 }
