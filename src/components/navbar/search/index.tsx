@@ -6,6 +6,9 @@ import { SearchResult } from '../../../result-context/searchResult';
 
 import { styled, alpha } from '@mui/material/styles';
 import { Button } from '@mui/material';
+import { makeStyles } from '@material-ui/core/styles';
+import { Avatar } from '@mui/material';
+import Box from '@mui/material/Box';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import Stack from '@mui/material/Stack';
@@ -60,6 +63,26 @@ const SearchBarComponent: React.FC = () => {
     const [queryInput, setQueryInput] = useState<string>('');
     const {setResult} = SearchResult();
 
+    //USER PROFILE DISPLAY
+    const [displayName, setDisplayName] = useState<string>();
+    const [profleImage, setProfileImage] = useState<string>();
+
+    const getProfile = async() => {
+        try {
+            const response = await axios.get(`${process.env.REACT_APP_SPOTIFY_BASE_URL}me`, {
+                headers: {
+                    Authorization: accTokenBearer
+                }
+            });
+            setDisplayName(response.data.display_name);
+            setProfileImage(response.data.images[0]['url']);
+        } catch(err) {
+            console.log(err);
+        }
+    };
+
+    getProfile();
+
     const handleSearchQueryInput = () => {
         const getSearchData = async() =>{ 
             try {
@@ -87,20 +110,39 @@ const SearchBarComponent: React.FC = () => {
     return (
 
         <AppNavBar>
-            <Search>
-                <SearchIconWrapper>
-                    <SearchIcon />
-                </SearchIconWrapper>
-                <Stack direction="row" spacing={2}>
-                    <StyledInputBase
-                        value={queryInput} 
-                        onChange={handleQueryInputChanges}
-                        placeholder="Search…"
-                        inputProps={{ 'aria-label': 'search' }}
-                    />
-                    <Button variant="contained" type="submit" onClick={handleSearchQueryInput}>Search</Button>
-                </Stack>
-            </Search>
+            <Box>
+                <Search>
+                    <SearchIconWrapper>
+                        <SearchIcon />
+                    </SearchIconWrapper>
+                    <Stack direction="row" spacing={2}>
+                        <StyledInputBase
+                            value={queryInput} 
+                            onChange={handleQueryInputChanges}
+                            placeholder="Search…"
+                            inputProps={{ 'aria-label': 'search' }}
+                        />
+                        <Button variant="contained" type="submit" onClick={handleSearchQueryInput}>Search</Button>
+                    </Stack>
+                </Search>
+            </Box>
+            <Box>
+                <h4>Hi, {displayName}</h4>
+
+                <Avatar
+                    src={profleImage}
+                    sx={{
+                        mx: 'auto',
+                        height: 40,
+                        width: 40,
+                        bgcolor: '#323031',
+                        '@media(max-width: 670px)': {
+                            height: 60,
+                            width: 60,
+                        },
+                    }}
+                />
+            </Box>
         </AppNavBar>
     );
 };

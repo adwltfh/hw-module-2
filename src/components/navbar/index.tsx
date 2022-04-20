@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './style.css';
-import axios from 'axios';
 import { useSelector } from 'react-redux';
 
 import Box from '@mui/material/Box';
@@ -8,7 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { makeStyles } from '@material-ui/core/styles';
-import { Avatar } from '@mui/material';
+// import { Avatar } from '@mui/material';
 
 const useStyles = makeStyles(theme => ({
     toolbar: {
@@ -44,25 +43,25 @@ const AppNavBar: React.FC = ({children}) => {
 
     const {accTokenBearer} = useSelector((state: any) => state.token);
 
-    //USER PROFILE DISPLAY
-    const [displayName, setDisplayName] = useState<string>();
-    const [profleImage, setProfileImage] = useState<string>();
+    // //USER PROFILE DISPLAY
+    // const [displayName, setDisplayName] = useState<string>();
+    // const [profleImage, setProfileImage] = useState<string>();
 
-    const getProfile = async() => {
-        try {
-            const response = await axios.get(`${process.env.REACT_APP_SPOTIFY_BASE_URL}me`, {
-                headers: {
-                    Authorization: accTokenBearer
-                }
-            });
-            setDisplayName(response.data.display_name);
-            setProfileImage(response.data.images[0]['url']);
-        } catch(err) {
-            console.log(err);
-        }
-    };
+    // const getProfile = async() => {
+    //     try {
+    //         const response = await axios.get(`${process.env.REACT_APP_SPOTIFY_BASE_URL}me`, {
+    //             headers: {
+    //                 Authorization: accTokenBearer
+    //             }
+    //         });
+    //         setDisplayName(response.data.display_name);
+    //         setProfileImage(response.data.images[0]['url']);
+    //     } catch(err) {
+    //         console.log(err);
+    //     }
+    // };
 
-    getProfile();
+    // getProfile();
 
     return (
         <Container>
@@ -78,23 +77,6 @@ const AppNavBar: React.FC = ({children}) => {
                     </Typography>
                     <Box className={classes.menu}>
                         {children}
-                    </Box>
-                    <Box>
-                        <h4>Hi, {displayName}</h4>
-        
-                        <Avatar
-                            src={profleImage}
-                            sx={{
-                                mx: 'auto',
-                                height: 40,
-                                width: 40,
-                                bgcolor: '#323031',
-                                '@media(max-width: 670px)': {
-                                    height: 60,
-                                    width: 60,
-                                },
-                            }}
-                        />
                     </Box>
                 </Toolbar>
             </Box>
