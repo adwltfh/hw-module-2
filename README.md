@@ -29,9 +29,9 @@ This project is built using [React.js](https://reactjs.org/docs/getting-started.
 
 1. Get your own Client ID at [Spotify for Developer](https://developer.spotify.com/dashboard/login)
 2. Clone the repo 
-  ```sh
-  git clone https://github.com/adwltfh/hw-module-2.git
-  ```
+   ```sh
+   git clone https://github.com/adwltfh/hw-module-2.git
+   ```
 3. Install npm packages
    ```sh
    npm install
@@ -77,5 +77,5 @@ You can see your username and profile photo of your Spotify Account on the top r
 
 ## Contact
 
-:camera_flash: Adawiyyah Latifah - [a.ltfh](https://instagram.com/a.ltfh/)
-:email: Adawiyyah Latifah - adawiyyahlatifah@gmail.com
+- :camera_flash: Adawiyyah Latifah - [a.ltfh](https://instagram.com/a.ltfh/)
+- :email: Adawiyyah Latifah - adawiyyahlatifah@gmail.com
