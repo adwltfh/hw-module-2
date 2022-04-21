@@ -70,6 +70,12 @@
   height: auto;
 }
 
+.title-selected {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
 .tracks-grid-component {
   display: flex;
   flex-direction: row;
@@ -85,6 +91,13 @@
 
   .selected-tracks-container {
     width: 200px;
+    margin-bottom: 10px;
+    padding-left: 30px;
+  }
+
+  .title-selected {
+    text-align: center;
+    font-size: 16px;
     margin-bottom: 10px;
   }
   

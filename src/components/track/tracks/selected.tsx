@@ -1,3 +1,4 @@
+import { Grid } from '@material-ui/core';
 import { ImageListItem } from '@mui/material';
 import '../style.css';
 

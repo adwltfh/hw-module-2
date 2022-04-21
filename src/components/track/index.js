@@ -35,21 +35,16 @@ const Track = () => {
                 selectedSongs.length > 0 &&
                 <>
                     <div className="selected-tracks-container">
-                        <Typography
-                            variant="h4"
-                            noWrap
-                            component="h2"
-                            className={classes.logo}
-                        >
-                            Selected Songs
-                        </Typography>
+                        <h4 className='title-selected'>Selected Songs</h4>
                         <ImageList
                             sx={{ 
-                                width: 1200,
+                                maxwidth: 1200,
                                 gridAutoFlow: 'column', 
                                 gridAutoColumns: 'max(100px, 1fr)',
                                 mx: 2,
                             }}
+                            xs={8}
+                            ms={6}
                             gap={3}
                         >
                             {selectedSongs.map((song) => {

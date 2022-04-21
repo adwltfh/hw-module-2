@@ -78,9 +78,31 @@
 .make-playlist-btn {
     width: 650px;
     text-align: center;
+    background-color: rgb(199, 89, 38);
+    padding: 10px 30px;
+    color: black;
+    font-weight: bold;
+    border: 2px solid rgb(174, 82, 39);
+    border-radius: 80px;
 }
 
 .btn-playlist-container {
     margin-top: 10px;
     text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .make-playlist-btn {
+        width: 100px;
+        font-size: 10px;
+        text-align: center;
+        height: 30px;
+        width: 80px;
+        display: inline-block;
+        background-color: rgb(129, 166, 234);
+        padding: 1px 5px;
+        color: black;
+        border: 2px solid rgb(113, 139, 185);
+        border-radius: 50px;
+    }
 }

@@ -5,6 +5,7 @@ import SearchBarComponent from '../../components/navbar/search';
 import { Grid } from '@mui/material';
 import { makeStyles } from '@material-ui/core';
 import { CenterFocusStrong } from '@mui/icons-material';
+import { grid } from '@mui/system';
 
 //MUI STYLE
 const useStyle = makeStyles(() => ({
@@ -31,7 +32,7 @@ const HomePage = () => {
                 <SearchBarComponent />
             </Grid>
             <Grid className={classes.tracksComp}>
-                <Grid lg={6} item={true} className={classes.tracks}>
+                <Grid xs={8} md={6} item={true}>
                     <Track />
                 </Grid>
             </Grid>

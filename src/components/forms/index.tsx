@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { SearchResult } from '../../result-context/searchResult';
 import PlaylistFormComponent from './forms-comp';
-import { Button, Modal } from '@mui/material';
+import { Modal } from '@mui/material';
 import { Box } from '@material-ui/core';
 
 const style: any = {
@@ -83,9 +83,9 @@ const PlaylistForm: React.FC = () => {
     return (
         <>
             <div className='btn-playlist-container'>
-                <Button variant="contained" size="large" onClick={handleOpen} className="make-playlist-btn">
+                <button onClick={handleOpen} className="make-playlist-btn">
                     Make Playlist
-                </Button>
+                </button>
             </div>
             <Modal
                 open={open}
